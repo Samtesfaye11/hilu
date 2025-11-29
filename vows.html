@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" class="vows">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vows</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="vows">
+
+<header>
+<h1>Vows</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="poems.html">Poems</a>
+<a href="letters.html">Letters</a>
+<a href="vows.html">Vows</a>
+<a href="quotes.html">Quotes</a>
+<a href="bible.html">Bible Verses</a>
+</nav>
+</header>
+
+<div id="floating-emojis"></div>
+
+<main class="content">
+<div class="slide">
+<p>I promise to love you endlessly,<br>
+To hold your heart as my own.<br>
+Through laughter, tears, and every storm,<br>
+Together, we will always be home.</p>
+</div>
+<div class="slide">
+<p>I vow to listen, to understand,<br>
+To stand with you through every trial.<br>
+Your happiness will always matter most,<br>
+Forever, I’ll cherish your smile.</p>
+</div>
+<!-- NEW VOWS START -->
+
+<div class="slide">
+<p>My love, I promise to cherish every moment with you, to hold your hand through life’s storms, and to love you endlessly with all my heart.</p>
+</div>
+
+<div class="slide">
+<p>I vow to always support you, to celebrate your successes, to comfort you in sorrow, and to be your safe place in every circumstance.</p>
+</div>
+
+<div class="slide">
+<p>Beloved, I promise to respect your heart, honor your dreams, and grow with you in love, kindness, and patience every single day.</p>
+</div>
+
+<div class="slide">
+<p>Sweetheart, I vow to laugh with you, dream with you, and face every challenge with you by my side, forever devoted to our love.</p>
+</div>
+
+<div class="slide">
+<p>Darling, I promise to treasure your heart, to listen with care, and to nurture the bond we share so that it flourishes eternally.</p>
+</div>
+
+<div class="slide">
+<p>My dearest, I vow to be your companion, your confidant, and your unwavering support, loving you through every season of life.</p>
+</div>
+
+<div class="slide">
+<p>Love, I promise to celebrate your uniqueness, to embrace your quirks, and to honor you in all that you are and all that you will be.</p>
+</div>
+
+<div class="slide">
+<p>Sweetheart, I vow to be patient, kind, and understanding, to listen with empathy, and to love you without hesitation or condition.</p>
+</div>
+
+<div class="slide">
+<p>Beloved, I promise to keep your heart safe, to walk beside you in every journey, and to build a life filled with love and joy together.</p>
+</div>
+
+<div class="slide">
+<p>Darling, I vow to inspire you, to lift you up, and to create a love story that grows more beautiful with every passing day.</p>
+</div>
+
+<div class="slide">
+<p>My love, I promise to honor our love, to respect your dreams, and to always prioritize the happiness we create together.</p>
+</div>
+
+<div class="slide">
+<p>Sweetheart, I vow to be your anchor in stormy seas, your sunshine on cloudy days, and your unwavering companion forevermore.</p>
+</div>
+
+<div class="slide">
+<p>Beloved, I promise to nurture the bond we share, to be honest, patient, and caring, and to love you with all that I am.</p>
+</div>
+
+<div class="slide">
+<p>Darling, I vow to embrace life with you, to celebrate each moment, and to walk beside you in love and joy through every path.</p>
+</div>
+
+<div class="slide">
+<p>My dearest, I promise to grow with you, laugh with you, and face every challenge hand in hand, heart to heart.</p>
+</div>
+
+<div class="slide">
+<p>Love, I vow to make your happiness my priority, to cherish every smile, and to love you more deeply every day.</p>
+</div>
+
+<div class="slide">
+<p>Sweetheart, I promise to be your constant, your confidant, and your shelter, holding you close through all of life’s seasons.</p>
+</div>
+
+<div class="slide">
+<p>Beloved, I vow to respect, honor, and adore you, to celebrate our love, and to make our journey together unforgettable.</p>
+</div>
+
+<div class="slide">
+<p>Darling, I promise to walk beside you, to nurture our love, and to create a world together filled with warmth and joy.</p>
+</div>
+
+<div class="slide">
+<p>My love, I vow to be your strength, your comfort, and your endless admirer, loving you without end and without reservation.</p>
+</div>
+
+<!-- NEW VOWS END -->
+
+
+<div class="nav-buttons">
+<button id="prev">Previous</button>
+<button id="next">Next</button>
+</div>
+</main>
+
+<footer>
+<p>Made with love ❤️</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const symbols = ['❤️','⭐','💫','✨','💖'];
+    const num = 40;
+    const container = document.getElementById('floating-emojis');
+
+    for (let i = 0; i < num; i++) {
+        const el = document.createElement('div');
+        el.className = 'floating';
+        el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+
+        const startX = Math.random() * 100;
+        const startY = Math.random() * 100;
+        el.style.left = startX + 'vw';
+        el.style.top = startY + 'vh';
+        el.style.fontSize = (12 + Math.random() * 18) + 'px';
+
+        const driftX = (Math.random() * 200 - 100);
+        const speed = 8 + Math.random() * 12;
+
+        container.appendChild(el);
+
+        let startTime = Date.now();
+        function float() {
+            const elapsed = (Date.now() - startTime) / 1000;
+            const progress = (elapsed % speed) / speed;
+            el.style.transform = `translate(${driftX * progress}px, ${-120 * progress}vh) rotate(${360 * progress}deg)`;
+            requestAnimationFrame(float);
+        }
+        float();
+    }
+
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+    slides.forEach((s,i)=>{if(i!==0)s.style.display='none';});
+
+    document.getElementById('next')?.addEventListener('click', ()=>{
+        slides[current].style.display='none';
+        current=(current+1)%slides.length;
+        slides[current].style.display='block';
+    });
+
+    document.getElementById('prev')?.addEventListener('click', ()=>{
+        slides[current].style.display='none';
+        current=(current-1+slides.length)%slides.length;
+        slides[current].style.display='block';
+    });
+});
+</script>
+
+</body>
+</html>

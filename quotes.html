@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" class="quotes">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quotes</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="quotes">
+
+<header>
+<h1>Quotes</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="poems.html">Poems</a>
+<a href="letters.html">Letters</a>
+<a href="vows.html">Vows</a>
+<a href="quotes.html">Quotes</a>
+<a href="bible.html">Bible Verses</a>
+</nav>
+</header>
+
+<div id="floating-emojis"></div>
+
+<main class="content">
+<div class="slide">
+<p>"You don’t just fill my heart...you overflow it."</p>
+</div>
+<div class="slide">
+<p>"In your eyes, I see everything I’ve ever wanted."</p>
+</div>
+<div class="slide">
+<p>"Love isn’t just a feeling; it’s having you by my side."</p>
+</div>
+<!-- NEW QUOTES START -->
+
+<div class="slide">
+<p>"You are the love I never knew I needed, and now I can’t imagine life without you."</p>
+</div>
+
+<div class="slide">
+<p>"Every moment with you feels like a beautiful dream I never want to wake from."</p>
+</div>
+
+<div class="slide">
+<p>"Your smile is my sunrise, and your laughter is my favorite song."</p>
+</div>
+
+<div class="slide">
+<p>"Love isn’t just words; it’s every heartbeat I feel when I’m with you."</p>
+</div>
+
+<div class="slide">
+<p>"With you, ordinary moments become extraordinary memories."</p>
+</div>
+
+<div class="slide">
+<p>"You are my today, my tomorrow, and every beautiful moment in between."</p>
+</div>
+
+<div class="slide">
+<p>"Being in your arms feels like home, a place I never want to leave."</p>
+</div>
+
+<div class="slide">
+<p>"Your love is the compass that guides me through life’s journey."</p>
+</div>
+
+<div class="slide">
+<p>"I never knew happiness until I met you; now it’s in every breath I take."</p>
+</div>
+
+<div class="slide">
+<p>"You are my heart’s melody, the song I’ll never stop playing."</p>
+</div>
+
+<div class="slide">
+<p>"Love grows deeper every day, and with you, it has no end."</p>
+</div>
+
+<div class="slide">
+<p>"You are my forever, the one my soul recognizes and cherishes."</p>
+</div>
+
+<div class="slide">
+<p>"The world is brighter, warmer, and kinder because you are in it."</p>
+</div>
+
+<div class="slide">
+<p>"Your love is my anchor, my joy, and my most treasured gift."</p>
+</div>
+
+<div class="slide">
+<p>"Every glance from you fills me with warmth, hope, and endless love."</p>
+</div>
+
+<div class="slide">
+<p>"I love you not only for who you are but for who I am when I’m with you."</p>
+</div>
+
+<div class="slide">
+<p>"Your heart is a haven I never want to leave, a place of peace and love."</p>
+</div>
+
+<div class="slide">
+<p>"With you, life is a beautiful adventure I never want to end."</p>
+</div>
+
+<div class="slide">
+<p>"You are my sunshine on rainy days and my calm in every storm."</p>
+</div>
+
+<div class="slide">
+<p>"Every heartbeat, every breath, every thought whispers your name."</p>
+</div>
+
+<!-- NEW QUOTES END -->
+
+
+<div class="nav-buttons">
+<button id="prev">Previous</button>
+<button id="next">Next</button>
+</div>
+</main>
+
+<footer>
+<p>Made with love ❤️</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const symbols = ['❤️','⭐','💫','✨','💖'];
+    const num = 40;
+    const container = document.getElementById('floating-emojis');
+
+    for (let i = 0; i < num; i++) {
+        const el = document.createElement('div');
+        el.className = 'floating';
+        el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+
+        const startX = Math.random() * 100;
+        const startY = Math.random() * 100;
+        el.style.left = startX + 'vw';
+        el.style.top = startY + 'vh';
+        el.style.fontSize = (12 + Math.random() * 18) + 'px';
+
+        const driftX = (Math.random() * 200 - 100);
+        const speed = 8 + Math.random() * 12;
+
+        container.appendChild(el);
+
+        let startTime = Date.now();
+        function float() {
+            const elapsed = (Date.now() - startTime) / 1000;
+            const progress = (elapsed % speed) / speed;
+            el.style.transform = `translate(${driftX * progress}px, ${-120 * progress}vh) rotate(${360 * progress}deg)`;
+            requestAnimationFrame(float);
+        }
+        float();
+    }
+
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+    slides.forEach((s,i)=>{if(i!==0)s.style.display='none';});
+
+    document.getElementById('next')?.addEventListener('click', ()=>{
+        slides[current].style.display='none';
+        current=(current+1)%slides.length;
+        slides[current].style.display='block';
+    });
+
+    document.getElementById('prev')?.addEventListener('click', ()=>{
+        slides[current].style.display='none';
+        current=(current-1+slides.length)%slides.length;
+        slides[current].style.display='block';
+    });
+});
+</script>
+
+</body>
+</html>

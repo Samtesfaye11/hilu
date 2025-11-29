@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" class="letters">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Letters</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="letters">
+
+<header>
+<h1>Letters</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="poems.html">Poems</a>
+<a href="letters.html">Letters</a>
+<a href="vows.html">Vows</a>
+<a href="quotes.html">Quotes</a>
+<a href="bible.html">Bible Verses</a>
+</nav>
+</header>
+
+<div id="floating-emojis"></div>
+
+<main class="content">
+
+<div class="slide">
+<p>Being with you makes me feel whole.<br>
+Every moment with you is a treasure.<br>
+I am grateful for your heart and all that you are.<br>
+You are my joy, my peace, my everything.</p>
+</div>
+<div class="slide">
+<p>Take all the time you need, my love.<br>
+I’ll be here, always patient, always caring.<br>
+With you by my side, I feel myself again.<br>
+You mean more to me than words could ever say.</p>
+</div>
+
+<!-- NEW LETTERS START -->
+
+<div class="slide">
+<p>My love, every time I think of you, my heart feels full. Your smile, your laughter, and your presence bring light to my darkest days. I am endlessly grateful for you, and I promise to cherish every moment we share together.</p>
+</div>
+
+<div class="slide">
+<p>Sweetheart, you make life feel magical in ways I never knew possible. Your kindness, your warmth, and your love inspire me to be the best version of myself. I can’t wait to see all the beautiful moments our future holds.</p>
+</div>
+
+<div class="slide">
+<p>Beloved, just knowing you are in my life fills me with joy. I treasure your heart, your soul, and every little thing that makes you so special. I am forever devoted to loving and supporting you, now and always.</p>
+</div>
+
+<div class="slide">
+<p>Darling, every time I hear your voice, I feel at home. Your words comfort me, your presence soothes me, and your love lifts me higher than I ever imagined. I am yours completely.</p>
+</div>
+
+<div class="slide">
+<p>My dearest, I love the way you see the world, the way you care, and the way you make me feel. You are my inspiration and my joy, and I will always treasure you above all else.</p>
+</div>
+
+<div class="slide">
+<p>Love, being with you makes every day brighter. Your laughter warms my soul, your smile lights my path, and your love gives me a peace I never knew existed. I am grateful for you endlessly.</p>
+</div>
+
+<div class="slide">
+<p>Sweetheart, no words can fully express how much you mean to me. Every little thing you do, every look, every gesture, fills my heart with love and reminds me that I am truly blessed to have you.</p>
+</div>
+
+<div class="slide">
+<p>Beloved, your love is my anchor and my guiding light. You make me feel safe, cherished, and understood. I promise to honor you, support you, and love you with all that I am.</p>
+</div>
+
+<div class="slide">
+<p>Darling, I am constantly amazed by you. Your beauty, both inside and out, your strength, your gentleness, they captivate me endlessly. I am thankful for every moment we share.</p>
+</div>
+
+<div class="slide">
+<p>My love, when I see you, the world feels right. Your laughter is music, your smile a sunrise, and your love a home I never want to leave. I will always hold you close in my heart.</p>
+</div>
+
+<div class="slide">
+<p>Sweetheart, you have changed my life in the most wonderful ways. Your love fills my heart with hope, joy, and endless gratitude. I am excited for every day we get to share together.</p>
+</div>
+
+<div class="slide">
+<p>Beloved, your presence in my life is a gift I will never take for granted. Every moment with you feels precious, and I want you to know that I will always treasure and protect our love.</p>
+</div>
+
+<div class="slide">
+<p>Darling, your happiness means everything to me. I want to be the one who lifts you when you are down, who celebrates every joy with you, and who loves you more with each passing day.</p>
+</div>
+
+<div class="slide">
+<p>My dearest, thinking of you makes me smile even on the toughest days. Your love inspires me, comforts me, and gives me strength. I am so grateful that you are in my life.</p>
+</div>
+
+<div class="slide">
+<p>Love, your heart is so beautiful, and I am endlessly thankful that you share it with me. I promise to always honor your love, protect your heart, and cherish you with all that I am.</p>
+</div>
+
+<div class="slide">
+<p>Sweetheart, you make ordinary moments extraordinary just by being you. I feel so lucky to experience your love, your laughter, and your warmth every day. You are my everything.</p>
+</div>
+
+<div class="slide">
+<p>Beloved, my love for you grows deeper with every passing day. Your smile, your kindness, your passion for life — it all fills my heart with joy. I am forever yours.</p>
+</div>
+
+<div class="slide">
+<p>Darling, I want you to know that I see you, I appreciate you, and I love you more than words could ever express. You are my heart, my soul, and my forever.</p>
+</div>
+
+<div class="slide">
+<p>My love, every time we are together, I feel complete. Your love, your laughter, and your gentle spirit bring me peace and happiness like nothing else ever could.</p>
+</div>
+
+<div class="slide">
+<p>Sweetheart, thank you for being exactly who you are — strong, loving, kind, and beautiful. You make my life richer, brighter, and full of love. I adore you endlessly.</p>
+</div>
+
+<!-- NEW LETTERS END -->
+
+
+<div class="nav-buttons">
+<button id="prev">Previous</button>
+<button id="next">Next</button>
+</div>
+</main>
+
+<footer>
+<p>Made with love ❤️</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Floating hearts & stars
+    const symbols = ['❤️','⭐','💫','✨','💖'];
+    const num = 40;
+    const container = document.getElementById('floating-emojis');
+
+    for (let i = 0; i < num; i++) {
+        const el = document.createElement('div');
+        el.className = 'floating';
+        el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+
+        const startX = Math.random() * 100;
+        const startY = Math.random() * 100;
+        el.style.left = startX + 'vw';
+        el.style.top = startY + 'vh';
+        el.style.fontSize = (12 + Math.random() * 18) + 'px';
+
+        const driftX = (Math.random() * 200 - 100);
+        const speed = 8 + Math.random() * 12;
+
+        container.appendChild(el);
+
+        let startTime = Date.now();
+        function float() {
+            const elapsed = (Date.now() - startTime) / 1000;
+            const progress = (elapsed % speed) / speed;
+            el.style.transform = `translate(${driftX * progress}px, ${-120 * progress}vh) rotate(${360 * progress}deg)`;
+            requestAnimationFrame(float);
+        }
+        float();
+    }
+
+    // Slide navigation
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+    slides.forEach((s,i)=>{if(i!==0)s.style.display='none';});
+
+    document.getElementById('next')?.addEventListener('click', ()=>{
+        slides[current].style.display='none';
+        current=(current+1)%slides.length;
+        slides[current].style.display='block';
+    });
+
+    document.getElementById('prev')?.addEventListener('click', ()=>{
+        slides[current].style.display='none';
+        current=(current-1+slides.length)%slides.length;
+        slides[current].style.display='block';
+    });
+});
+</script>
+
+</body>
+</html>

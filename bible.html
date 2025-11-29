@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" class="bible">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bible Verses</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="bible">
+
+<header>
+<h1>Bible Verses</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="poems.html">Poems</a>
+<a href="letters.html">Letters</a>
+<a href="vows.html">Vows</a>
+<a href="quotes.html">Quotes</a>
+<a href="bible.html">Bible Verses</a>
+</nav>
+</header>
+
+<div id="floating-emojis"></div>
+
+<main class="content">
+<div class="slide">
+<p>"I can do all things through Christ who strengthens me." - Philippians 4:13</p>
+</div>
+<div class="slide">
+<p>"For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you." - Jeremiah 29:11</p>
+</div>
+<div class="slide">
+<p>"The Lord is my shepherd; I shall not want." - Psalm 23:1</p>
+</div>
+<!-- NEW BIBLE VERSES START -->
+
+<div class="slide">
+<p>"Love is patient, love is kind. It does not envy, it does not boast, it is not proud." - 1 Corinthians 13:4</p>
+</div>
+
+<div class="slide">
+<p>"I have loved you with an everlasting love; I have drawn you with unfailing kindness." - Jeremiah 31:3</p>
+</div>
+
+
+<div class="slide">
+<p>"Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you." - Joshua 1:9 </p>
+</div>
+
+<div class="slide">
+<p>"This is the day the Lord has made; let us rejoice and be glad in it." - Psalm 118:24 </p>
+</div>
+
+<div class="slide">
+<p>"Above all, love each other deeply, because love covers over a multitude of sins." - 1 Peter 4:8</p>
+</div>
+
+<div class="slide">
+<p>"Cast all your anxiety on Him because He cares for you." - 1 Peter 5:7 </p>
+</div>
+
+<div class="slide">
+<p>"Let all that you do be done in love." - 1 Corinthians 16:14</p>
+</div>
+
+<div class="slide">
+<p>"The Lord bless you and keep you; the Lord make His face shine on you and be gracious to you." - Numbers 6:24-25 </p>
+</div>
+
+<div class="slide">
+<p>"Two are better than one, because they have a good return for their labor." - Ecclesiastes 4:9 </p>
+</div>
+
+<div class="slide">
+<p>"Your love, Lord, reaches to the heavens, your faithfulness to the skies." - Psalm 36:5</p>
+</div>
+
+<div class="slide">
+<p>"Delight yourself in the Lord, and He will give you the desires of your heart." - Psalm 37:4</p>
+</div>
+
+<div class="slide">
+<p>"We love because He first loved us." - 1 John 4:19</p>
+</div>
+
+<div class="slide">
+<p>"Let not your hearts be troubled. Believe in God; believe also in me." - John 14:1 </p>
+</div>
+
+<div class="slide">
+<p>"The Lord is my light and my salvation; whom shall I fear?" - Psalm 27:1 </p>
+</div>
+
+<div class="slide">
+<p>"Rejoice always, pray continually, give thanks in all circumstances." - 1 Thessalonians 5:16-18</p>
+</div>
+
+<div class="slide">
+<p>"I am with you always, to the very end of the age." - Matthew 28:20</p>
+</div>
+
+<div class="slide">
+<p>"Let love be genuine. Abhor what is evil; hold fast to what is good." - Romans 12:9</p>
+</div>
+
+<div class="slide">
+<p>"As for me and my house, we will serve the Lord." - Joshua 24:15</p>
+</div>
+
+<div class="slide">
+<p>"The Lord is near to all who call on Him, to all who call on Him in truth." - Psalm 145:18</p>
+</div>
+
+<!-- NEW BIBLE VERSES END -->
+
+
+<div class="nav-buttons">
+<button id="prev">Previous</button>
+<button id="next">Next</button>
+</div>
+</main>
+
+<footer>
+<p>Made with love ❤️</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const symbols = ['❤️','⭐','💫','✨','💖'];
+    const num = 40;
+    const container = document.getElementById('floating-emojis');
+
+    for (let i = 0; i < num; i++) {
+        const el = document.createElement('div');
+        el.className = 'floating';
+        el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+
+        const startX = Math.random() * 100;
+        const startY = Math.random() * 100;
+        el.style.left = startX + 'vw';
+        el.style.top = startY + 'vh';
+        el.style.fontSize = (12 + Math.random() * 18) + 'px';
+
+        const driftX = (Math.random() * 200 - 100);
+        const speed = 8 + Math.random() * 12;
+
+        container.appendChild(el);
+
+        let startTime = Date.now();
+        function float() {
+            const elapsed = (Date.now() - startTime) / 1000;
+            const progress = (elapsed % speed) / speed;
+            el.style.transform = `translate(${driftX * progress}px, ${-120 * progress}vh) rotate(${360 * progress}deg)`;
+            requestAnimationFrame(float);
+        }
+        float();
+    }
+
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+    slides.forEach((s,i)=>{if(i!==0)s.style.display='none';});
+
+    document.getElementById('next')?.addEventListener('click', ()=>{
+        slides[current].style.display='none';
+        current=(current+1)%slides.length;
+        slides[current].style.display='block';
+    });
+
+    document.getElementById('prev')?.addEventListener('click', ()=>{
+        slides[current].style.display='none';
+        current=(current-1+slides.length)%slides.length;
+        slides[current].style.display='block';
+    });
+});
+</script>
+
+</body>
+</html>
