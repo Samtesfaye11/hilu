@@ -128,36 +128,6 @@
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const symbols = ['❤️','⭐','💫','✨','💖'];
-    const num = 40;
-    const container = document.getElementById('floating-emojis');
-
-    for (let i = 0; i < num; i++) {
-        const el = document.createElement('div');
-        el.className = 'floating';
-        el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
-
-        const startX = Math.random() * 100;
-        const startY = Math.random() * 100;
-        el.style.left = startX + 'vw';
-        el.style.top = startY + 'vh';
-        el.style.fontSize = (12 + Math.random() * 18) + 'px';
-
-        const driftX = (Math.random() * 200 - 100);
-        const speed = 8 + Math.random() * 12;
-
-        container.appendChild(el);
-
-        let startTime = Date.now();
-        function float() {
-            const elapsed = (Date.now() - startTime) / 1000;
-            const progress = (elapsed % speed) / speed;
-            el.style.transform = `translate(${driftX * progress}px, ${-120 * progress}vh) rotate(${360 * progress}deg)`;
-            requestAnimationFrame(float);
-        }
-        float();
-    }
 
     const slides = document.querySelectorAll('.slide');
     let current = 0;
@@ -174,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
         current=(current-1+slides.length)%slides.length;
         slides[current].style.display='block';
     });
-});
+
 </script>
 
 </body>
